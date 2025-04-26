@@ -1,0 +1,392 @@
+/* Author: Heath Dyer */ 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", "Segoe UI Symbol";
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "sidebar header";
+}
+
+/* Sidebar -------------------------------------->*/
+
+aside {
+    grid-area: sidebar;
+    position: sticky;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 20vw;
+    height: 100vh;
+    color: white;
+    background-color:rgb(25, 48, 68);
+    text-decoration: none;
+    box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+
+    .profile-photo {
+        border-radius: 50%;
+    }
+
+    .logo {
+        padding: 20px 0;
+    }
+
+    .account-info {
+        padding: 10px 0;
+    }
+
+    .sidebar {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: white;
+        padding: 20px 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background-color: #435670;
+    }
+
+    .subnav {
+        display: none;
+        position: absolute;
+        border-radius: 0 10px 10px 0;
+        background-color: #435670;
+        left: 19.8vw;
+    }
+
+    .nav-item:hover .subnav {
+        display: block;
+    }
+
+    .subnav .nav-link:hover {
+        border-radius: 0 10px 10px 0;
+        background-color: #6481a8;
+    }
+
+    .nav-item:has(.subnav .nav-item:hover) > .nav-link {
+        background-color: #6481a8;
+    }
+
+    .nav-footer {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .nav-footer-item {
+        padding: 4vh;
+        text-decoration: none;
+        color: white;
+    }
+
+    .nav-footer-item:hover {
+        color: rgb(140, 161, 179); 
+    }
+}
+
+/* Header --------------------------------------> */
+
+header {
+    color: white;
+    grid-area: header;
+    width: 100%;
+    background-color: rgb(25, 48, 68);
+    background-image: linear-gradient(rgb(25, 48, 68), rgb(41, 75, 105));
+    box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    left: 20vw;
+    height: 10vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "header-left header-right";
+}
+
+.left-header {
+    display: flex;
+    justify-content: left;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
+
+    span {
+        position: absolute;
+        top: 3.4vh;
+        left: 1vw;
+        font-size: 2vh;
+    }
+
+    #text-field-hero-input {
+        font-size: 1.7vh;
+        width: 20vw;
+        position: absolute;
+        top: 3vh;
+        left: 11vw;
+        appearance: none;
+        border: none;
+        border-radius: 50px;
+        padding: 1vh 2vh;
+    }
+
+    form input:focus + label {
+        display: none;
+    }
+
+    label {
+        font-size: 1.7vh;
+        display: block;
+        position: absolute;
+        color:#2c3e50;
+        top: 3.8vh;
+        left: 12vw;
+    }
+    
+}
+
+.right-header {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        object-fit: scale-down;
+    }
+}
+
+.dropdown {
+    display: flex;
+    box-sizing: border-box;
+    height: 100%;
+    
+    button {
+        transition: color 0.3s ease, color 0.3s ease;
+        color: white;
+        background: none;
+        font-size: 5vh;
+        border: none;
+    }
+
+    #profile {
+        display:flex;
+        font-size: 3vh;
+        align-items: center;
+        gap: 10px;
+        img {
+            height: 8vh;
+            border-radius: 50%;
+            padding: 10px;
+        }
+    }
+}
+
+.dropdown:hover button{
+    color: rgb(140, 161, 179); 
+}
+
+.dropdown-content {
+    transition: display 0.3s ease, color 0.3s ease;
+    display: none;
+    position: absolute;
+    top: 10vh;
+    min-width: 10vw;
+
+    h6 {
+        transition: background-color 0.3s ease, color 0.3s ease;
+        background-color: rgb(25, 48, 68);
+    }
+
+    ul {
+        background-color: rgb(25, 48, 68);
+        border-radius: 0 0 10px 10px;
+    }
+
+    li {
+        transition: background-color 0.3s ease, color 0.3s ease;
+        list-style-type: none;
+        padding: 10px;
+    }
+
+    li a  {
+        text-decoration: none;
+        color: white;
+    }
+
+    li:hover {
+        background-color:rgb(41, 75, 105);
+        border-radius: 0 0 10px 10px;
+    }
+
+    li:hover h6 {
+        background-color:rgb(41, 75, 105);
+    }
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Main content --------------------------------------> */
+
+main {
+    background-color: aliceblue;
+    grid-area: content-area;
+    max-width: 100%;
+}
+
+/* For all my containers in my main*/
+.container {
+    text-align: center;
+    margin: 15px 20px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.2);
+
+    div {
+        margin: 15px 5px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    h4, h3 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        color: #2e3b4e;
+    }
+
+    h5, h6 {
+        font-size: 1.25rem;
+        color: #455a64;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #222222;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1rem;
+        color: #6c757d;
+        margin-top: 0.5rem;
+    }
+
+    button {
+        background-color: #435670;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+        background-color: #6481a8;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    table th, table td {
+        padding: 10px;
+        text-align: left;
+        font-size: 1rem;
+    }
+    
+    table th {
+        background-color: #435670;
+        color: white;
+    }
+    
+    table td {
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    
+    table tr:nth-child(even) td {
+        background-color: #f1f1f1;
+    }
+    
+    table tr:hover td {
+        background-color: #e4e4e4;
+    }
+}
+
+
+#dashboard-info {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    .container {
+        flex: 1;
+    }
+}
+
+#grid1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "impressions-chart traffic-chart";
+}
+
+#grid2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "revenue-chart order-stats";
+}
+
+#impressions-chart {
+    grid-area: impressions-chart;
+}
+
+#traffic-chart {
+    grid-area: traffic-chart;
+}
+
+#revenue-chart {
+    grid-area: revenue-chart;
+}
+
+#order-stats {
+    grid-area: order-stats;
+}

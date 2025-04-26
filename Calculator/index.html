@@ -1,0 +1,92 @@
+<!-- Author: Heath Dyer -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" type="module" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <title>Calculator</title>
+</head>
+<body>
+    <header>
+        <!-- Calculator header -->
+        <div>
+            <h1>Calculator</h1>
+        </div>
+    </header>
+    <main>
+        <!-- Cacluatlor -->
+        <div id="calculator">
+            <!-- Buttons -->
+            <div id="display">
+                <div class="operand">0</div>
+            </div>
+            <div data-type="number" data-value="7" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="number" data-value="8" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="number" data-value="9" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="operation" data-value="/" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="number" data-value="4" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="number" data-value="5" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="number" data-value="6" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="operation" data-value="X" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="number" data-value="1" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="number" data-value="2" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="number" data-value="3" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="operation" data-value="-" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="clear" data-value="C" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="number" data-value="0" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="decimal" data-value="." class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="operation" data-value="+" class="btn">
+                <div class="btn-content"></div>
+            </div>
+            <div data-type="computation" data-value="=" class="btn">
+                <div class="btn-content"></div>
+            </div>
+        </div>
+        <!-- History -->
+        <div id="history">
+            <!-- List to populate with history items -->
+            <ul id="history-list">
+            </ul>
+            <!-- clear button -->
+            <div data-type="clear-history" data-value="Clear History" data-value="ch" id="btn-clear-history" class="btn">
+                <p class="btn-content"></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

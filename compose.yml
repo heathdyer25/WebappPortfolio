@@ -1,0 +1,72 @@
+name: heath-dyer-webapp-portfolio
+
+services:
+  proxy:
+    image: nginx:latest
+    restart: unless-stopped
+    volumes:
+      - ./proxy/default.conf.template:/etc/nginx/templates/default.conf.template
+    ports:
+      - "80:80"
+
+  static-sites:
+    image: httpd:latest
+    restart: unless-stopped
+    volumes:
+      - ./StaticSites:/usr/local/apache2/htdocs
+
+  calculator:
+    image: httpd:latest
+    restart: unless-stopped
+    volumes:
+      - ./Calculator:/usr/local/apache2/htdocs
+
+  pay-your-friends:
+    build: ./PayYourFriends
+    restart: unless-stopped
+    volumes:
+      - "./PayYourFriends/src:/pay-your-friends/src"
+      - "./PayYourFriends/static:/pay-your-friends/static"
+      - "./PayYourFriends/templates:/pay-your-friends/templates"
+      - "./PayYourFriends/server.js:/pay-your-friends/server.js"
+    env_file:
+      - "./.env"
+
+  howler:
+    build: ./Howler
+    restart: unless-stopped
+    volumes:
+      - "./Howler/src:/howler/src"
+      - "./Howler/static:/howler/static"
+      - "./Howler/templates:/howler/templates"
+      - "./Howler/server.js:/howler/server.js"
+    env_file:
+      - "./.env"
+
+  shounen-api:
+    build: ./ShounenShowdown/api
+    restart: unless-stopped
+    volumes:
+      - ./ShounenShowdown/api/src:/shounen-api/src
+      - ./ShounenShowdown/api/package.json:/shounen-api/package.json
+    env_file:
+      - ./.env
+
+  shounen-frontend:
+    build: ./ShounenShowdown/frontend
+    restart: unless-stopped
+    volumes:
+      - ./ShounenShowdown/frontend/src:/shounen-frontend/src
+      - ./ShounenShowdown/frontend/public:/shounen-frontend/public
+      - ./ShounenShowdown/frontend/package.json:/shounen-frontend/package.json
+
+  shounen-database:
+    image: mariadb:latest
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./ShounenShowdown/database/data:/var/lib/mysql
+      - ./ShounenShowdown/database/db_schema:/docker-entrypoint-initdb.d
+    env_file:
+      - ./.env

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Pay Your Friends</title>
+</head>
+<body>
+
+    <header>
+        <h1>Pay Your Friends</h1>
+        <img src="images/dollar-sign.png">
+    </header>
+    <div class="form">
+        <div class="form-section">
+            <div class="form-component">
+                    <h1>Success</h1>
+                    <p class="success">Form submitted successfully. </p>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-component">
+                    <h1>Sender Details</h1>
+                    <img id="image-preview" src="uploads/{{ data.file.filename }}" alt="Uplaoded Image">
+                    <p><b>Name:</b> {{ data.body.sender-first-name }} {{ data.body.sender-last-name }}</p>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-component">
+                    <h1>Recipient Details</h1>
+                    <p><b>Name:</b> {{ data.body.recipient-first-name }} {{ data.body.recipient-last-name }}</p>
+                    <p><b>Message:</b> {{ data.body.message }}</p>
+                    <p><b>Notifcation Preference:</b> {{ data.body.notify-recipient }}</p>
+                    <p><b>Email:</b> {{ data.body.email }}</p>
+                    <p><b>Phone Number:</b> {{ data.body.phone-number }}</p>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-component">
+                    <h1>Payment Details</h1>
+                    <p><b>Card Type:</b> {{ data.body.card-type }}</p>
+                    <p><b>Card Number:</b> {{ data.body.card-number }}</p>
+                    <p><b>Expiration:</b> {{ data.body.expiration}}</p>
+                    <p><b>Amount:</b> ${{ data.body.amount }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

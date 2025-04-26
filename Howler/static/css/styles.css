@@ -1,0 +1,15 @@
+textarea {
+    resize: none;
+}
+
+#header-profile:hover {
+    cursor: pointer;
+}
+
+.howl-header:hover {
+    cursor: pointer;
+}
+
+.follow-item:hover {
+    cursor: pointer;
+}

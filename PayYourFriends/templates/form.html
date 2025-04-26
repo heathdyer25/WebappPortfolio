@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="module" src="js/form.js" defer></script>
+    <title>Pay Your Friends</title>
+</head>
+<body>
+
+    <header>
+        <h1>Pay Your Friends</h1>
+        <img src="images/dollar-sign.png">
+    </header>
+    <form class="form" method="POST" action="./send"  enctype="multipart/form-data" novalidate>
+        <div class="form-section">
+            <div class="form-component">
+                <h1>Sender Details</h1>
+            </div>
+
+            <div class="form-component">
+                <img id ="image-preview" src="images/upload-icon.png">
+                <input id="sender-image" name="sender-image" type="file" required>
+            </div>
+
+            <div class="form-component">
+                <label for="sender-first-name">First name:</label>
+                <input id="sender-first-name" type="text" name="sender-first-name" required>
+            </div>
+
+            <div class="form-component">
+                <label for="sender-last-name">Last name:</label>
+                <input id="sender-last-name" type="text" name="sender-last-name" required>
+            </div>
+
+        </div>
+        <div class="form-section">
+            <div class="form-component">
+                <h1>Recipient Details</h1>
+            </div>
+
+            <div class="form-component">
+                <label for="recipient-first-name">First name:</label>
+                <input id="recipient-first-name" type="text" name="recipient-first-name" required>
+            </div>
+
+            <div class="form-component">
+                <label for="recipient-last-name">Last name:</label>
+                <input id="recipient-last-name" type="text" name="recipient-last-name" required> 
+            </div>
+
+            <div class="form-component">
+                <label for="message">Message:</label>
+                <input id="message" type="text" name="message" required minlength="10"> 
+            </div>
+
+            <div class="form-component-2">
+                <p>Notify Recipient</p>
+                <input id="notify-recipient-1" type="radio" name="notify-recipient" value="Email">
+                <label for="notify-recipient-1">Email</label>
+                <input id="notify-recipient-2" type="radio" name="notify-recipient" value="SMS">
+                <label for="notify-recipient-2">SMS</label>
+                <input id="notify-recipient-3" type="radio" name="notify-recipient" value="None">
+                <label for="notify-recipient-3">Do not notify</label>
+            </div>
+
+            <div class="form-component">
+                <label for="email">Email:</label>
+                <input id="email" type="text" name="email">
+            </div>
+
+            <div class="form-component">
+                <label for="phone-number">Phone Number:</label>
+                <input id="phone-number" type="text" name="phone-number"> 
+            </div>
+
+        </div>
+
+        <div class="form-section">
+            <div class="form-component">
+                <h1>Payment Details</h1>
+            </div>
+
+            <div class="form-component">
+                <label for="card-type">Card Type:</label>
+                <select id="card-type" name="card-type" required placeholder="Please select:">
+                    <option value="" disabled selected>Select Card Type</option>
+                    <option>Visa</option>
+                    <option>MasterCard</option>
+                    <option>Discover</option>
+                </select>
+            </div>
+
+            <div class="form-component">
+                <label for="card-number">Card Number:</label>
+                <input id="card-number" type="text" name="card-number" required pattern="^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$">
+            </div>
+
+            <div class="form-component">
+                <label for="expiration">Expiration:</label>
+                <input id="expiration" type="month" name="expiration" required>
+            </div>
+
+            <div class="form-component">
+                <label for="ccv">CCV:</label>
+                <input id="ccv" type="password" name="ccv" minlength="3" maxlength="4" pattern="^[0-9]*$" required>
+            </div>
+
+            <div class="form-component">
+                <label for="amount">Amount ($):</label>
+                <input id="amount" type="text" name="amount" required pattern="^[0-9]+(\.[0-9]{1,2})?$">
+            </div>
+
+            <div class="form-component-2">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the Terms and Conditions</label>
+            </div>
+
+            <div class="form-component">
+                <input type="submit" value="Send">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

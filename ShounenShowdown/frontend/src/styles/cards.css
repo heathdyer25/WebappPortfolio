@@ -1,0 +1,263 @@
+/* @author Heath Dyer (hadyer) 
+   @author Gabriel Dean (gpdean) 
+   @author Kanak Joshi (kjoshi3) */
+  
+/* Default: Mobile */
+
+/* Deck Styling */
+.deck.container {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    min-height: 21vh;
+    width: 95%;
+    gap: 0;
+    padding: .5rem;
+
+    /* Let's cards overlap */
+    .card {
+        flex-shrink: 0;
+        position: relative;
+    }
+
+    .card:nth-child(2) {
+        left: -1.5rem;
+    }
+    
+    .card:nth-child(3) {
+        left: -3rem;
+    }
+    
+    .card:nth-child(4) {
+        left: -4.5rem;
+    }
+    
+    .card:nth-child(5) {
+        left: -6rem;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #1f1f1f;
+    border-radius: .625rem;
+    padding: .625rem;
+    width: 20%;
+    box-shadow: 0 .25rem .375rem rgba(255, 204, 0, 0.2);
+
+    .card-name {
+        flex: 1; /* So cards with single line names line up */
+        text-align: center;
+    }
+
+    .card-img-wrapper {
+        position: relative;
+        width: fit-content;
+
+        .card-img {
+            width: 50px;
+            height: 100px;
+            border-radius: .25rem;
+            border: .125rem solid #ffcc00;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .hp-overlay {
+            display:none;
+            position: absolute;
+            width: 38px;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 0.625rem;
+            padding: .125rem .5rem;
+            text-align: center;
+            border-radius: 4px;
+            pointer-events: none;
+        }
+    }
+
+    .info-btn {
+        float: right;
+        border: 3px solid #ffcc00; 
+        border-radius: 50%;
+        color: #ffcc00;
+        font-size: .75rem;
+        padding: .25rem .5rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-weight: bolder;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .info-btn:hover {
+        background-color: #ffcc00;
+        color: #1a1a1a;
+    }
+
+    div {
+        font-weight: bold;
+        color: #ffcc00;
+        margin-top: .25rem;
+        font-size: .75rem;
+    }
+}  
+
+/* Collection styling */
+.collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #1a1a1a;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: .675rem;
+    box-shadow: 0 .25rem .675rem rgba(255, 204, 0, 0.2);
+    
+    .card.indeck {
+        outline: 4px solid #3d8b3e;
+        box-shadow: 0 .25rem .375rem rgba(47, 255, 0, 0.2);
+    }
+}
+
+/* Card pack styling */
+.packs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.shop {
+    justify-content: space-evenly;
+}
+
+.pack {
+    background: #222;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    cursor: pointer;
+    border: .125rem solid #ffcc00;
+    padding: .5rem;
+    border-radius: .675rem;
+    width: auto;
+
+    h3 {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    
+    p {
+        color: #ddd;
+        font-size: 1rem;
+    }
+
+    .cards {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: .675rem;
+
+        .card {
+            width: 38%;
+
+            .card-img {
+                aspect-ratio: 1 / 2;
+                flex: 1;
+            }
+        }
+    }
+}
+
+/* Tablet Potrait*/
+@media screen and (min-width: 768px) {
+    .shop {
+        flex-direction: column;
+    }
+    .card {
+        .card-name {
+            flex: 0;
+        }
+
+        .card-img-wrapper{
+            .card-img {
+                aspect-ratio: 1 / 2;
+                width: 100px;
+                height: 200px;
+                flex: 1;
+            }
+            .hp-overlay {
+                width: 84px;
+            }
+        }
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1260px) {
+    .card {
+        gap: .5rem;
+
+        .card-name {
+            flex: 0;
+        }
+
+        .card-img-wrapper{
+            .card-img {
+                flex: 1;
+                width: 125px;
+                height: 250px;
+            }
+            .hp-overlay {
+                width: 107px;
+            }
+        }
+    }
+}
+
+.buy-pack-btn {
+    float: right;
+    border: 3px solid #ffcc00; 
+    border-radius: 10%;
+    color: #ffcc00;
+    font-size: .75rem;
+    padding: .25rem .5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bolder;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.buy-pack-btn:hover {
+    background-color: #ffcc00;
+    color: #1a1a1a;
+}
+
+.buy-pack-btn[disabled] {
+    opacity: 0.2;
+    background-color: rgba(255, 0, 0, 0.2);
+    pointer-events: none;        /* Prevent clicks/interactions */
+  }
+
+.pack-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    width: auto;
+}
+
+.icon { 
+    width: 2rem;
+    height: 2rem;
+}

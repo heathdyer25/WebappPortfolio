@@ -1,0 +1,155 @@
+/* Author: Heath Dyer  */
+
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(to right, rgb(80, 28, 122), rgb(84, 108, 218));
+    margin: 0;
+    top: 0;
+    left: 0;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 50vw);
+    grid-template-rows: auto;
+    grid-template-areas: "calculator history";
+}
+
+/** header */
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+}
+
+/* Button stylings */
+
+.btn {
+    background-color: rgba(191, 208, 255, 0.75);
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-content {
+    color: rgb(30, 35, 46);
+    text-align: center;
+    font-size: 2rem;
+    flex: 1;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: rgba(191, 208, 255, 0.9);
+}
+
+.btn:active {
+    background-color: rgba(191, 208, 255, 0.6);
+}
+
+/* Calculator stylings */
+
+#calculator {
+    grid-area: calculator;
+    display: grid;
+    justify-content: stretch;
+    align-content: stretch;
+    grid-template-columns: repeat(4, "1fr");
+    margin-left: 10vw;
+    margin-right: 5vw;
+    height: 75vh;
+    width: 35vw;
+    box-shadow: 10px 10px 10px rgba(30, 35, 46, .2);
+    border: 1px solid white;
+    background-color: rgb(52, 61, 78);
+}
+
+#calculator .btn {
+    border-radius: 1rem;
+    margin: 1rem;
+    font-family: "Orbitron", serif;
+}
+
+#calculator div:first-child, #calculator div:last-child {
+    grid-column: span 4;
+}
+
+
+#display {
+    background-color: rgba(30, 35, 46, 1);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.operand {
+    font-family: "Orbitron", serif;
+    width: 80%;
+    background-color: rgba(44, 151, 89, 0.8);
+    color: rgba(30, 35, 46, .9);
+    font-size: 2.5rem;
+    text-align: right;
+    justify-content: center;
+    border: 1px solid rgb(167, 162, 162);
+}
+
+/* Calcualtor hisotry stylings */
+
+#history {
+    grid-area: history;
+    margin-left: 5vw;
+    margin-right: 10vw;
+    max-height: 75vh;
+    max-width: 35vw;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 10px 10px rgba(30, 35, 46, .2);
+    border: 1px solid white;
+}
+
+#history-list {
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    overflow: auto;
+}
+
+#history-list li {
+    display: flex;
+    margin: 0;
+    font-size: 2rem;
+    color: white;
+}
+
+#history-list li:empty {
+    padding: 2.2rem 0 0 0;
+}
+
+#history-list li:empty {
+    display: block;
+}
+
+#history-list li:nth-child(odd) {
+    background-color: rgba(30, 35, 46, .75);
+}
+
+#history-list li:nth-child(even) {
+    background-color: rgba(58, 68, 87, 0.75);
+}
+
+#history-list li:hover {
+    background-color: rgba(97, 113, 143, 0.75);
+    cursor: pointer;
+}
+
+#history-list li:active {
+    background-color: rgba(58, 68, 87, 0.5);
+}

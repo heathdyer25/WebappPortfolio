@@ -1,0 +1,378 @@
+/* @author Heath Dyer
+   @author Gabriel Dean */
+
+/* Default: Mobile Portrait */
+:root {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #121212;
+
+    /* General styling*/
+    a {
+        text-decoration: none;
+    }
+
+    /* The Go Back Button */
+    a.go-back {
+        width:fit-content;
+        color: #ffcc00;
+        float: left;
+        font-size: 28px;
+        font-weight: bolder;
+        margin: 2vh 0 0 4vw; /* matches main margin */
+    }
+
+    .button {
+        background: #ffcc00;
+        color: black;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        padding: .75rem;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+
+        .icon {
+            margin: 0 .5rem; /* Keep icons and text separated */
+            width: 1rem;
+            height: 1rem;
+            padding: 0;
+        }
+    }
+}
+
+/* Does root have to be an id? 
+    By principle everything that will only appear once across pages is #id,
+    otherwise is a class.
+    everything is nested to help with readability. If something needs a wider
+    scope move it up the nest. */
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Take up entire screen */
+}
+
+.header {
+    background-color: #1f1f1f;
+    border-bottom: .25rem solid #ffcc00;
+    box-shadow: 0 .25rem .625rem rgba(255, 204, 0, 0.2);
+    padding: 1.5rem;
+
+    .title-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        text-shadow: .25rem .25rem .25rem black;
+
+        .title {
+            position: relative;
+            z-index: 2; /* In front of Logo */
+            font-weight: bold;
+            color: #ffcc00;
+            font-size: 2rem;  
+        }
+
+        .title-icon {
+            position: absolute;
+            z-index: 1;
+            height: 4rem;
+            width: auto;
+        }
+    }
+}
+
+main { 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Take up the entire screen */
+    margin: 2vh 4vw;
+    gap: 2vh;
+
+    .user-badge {
+        display: flex;
+        align-items: center; /* Keeps text aligned with img */
+        border-radius: 8px;
+        background: #333;
+        width: fit-content;
+        padding: .5rem;
+        gap: .5rem;
+
+        /* Uses more .profile-img stylings at bottom of main */
+        .profile-img {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        #username {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: rgb(220, 220, 220);
+        }
+    }
+
+    #utility-strip {
+        display: flex;
+        flex-direction: row;   
+
+        #util-icons {
+            display: flex;
+            margin-left: auto;
+            gap: .6rem;
+
+            .icon { 
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+
+    .coin-container {
+        display: flex;
+        align-items: center; /* Keeps text aligned with img */
+        flex: 1;
+        font-weight: bold;
+        background: #333;
+        text-align: center;
+        width: fit-content;
+        height: fit-content;
+        padding: .5rem;
+        gap: .125rem;
+        border-radius: 12px;
+        margin-left: auto;
+
+
+        .balance {
+            font-size: 1rem;
+            color: rgb(220, 220, 220);
+        }
+        
+        .coin-img {
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+
+    .graphic {
+        width:50%
+    }
+
+    .battle-icon {
+        margin-top: 6vh;
+        width: 12rem;
+    } 
+
+    .battle-options {
+        margin-bottom: 6vh;
+    }
+
+    .stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        background: #1a1a1a;
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 .25rem .625rem rgba(255, 204, 0, 0.2);
+        gap: 1rem;
+    }
+    
+    .stat-container {
+        flex: 1;
+        font-weight: bold;
+        background: #222;
+        text-align: center;
+        padding: .5rem;
+        border-radius: 12px;
+        min-width: 40%;
+
+        .icon {
+            height: 1.5rem;
+            width: 1.5rem
+        }
+
+        .stat-title {
+            font-size: 1.5rem;
+        }
+
+        .stat {
+            color: #ffcc00;
+            font-size: 1.5rem;
+        }
+    }
+
+    #login, #register {
+        margin-top: 10vh;
+    }
+
+    /* Non-specific styling */
+    .row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+ 
+    .gap {
+        gap: 1rem;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #1f1f1f;
+        text-align: center;
+        /* margin-top: 6vh; */
+        border: .125rem solid #ffcc00;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 .25rem .375rem rgba(255, 204, 0, 0.2);
+        gap: 2vh;
+    }
+
+    .profile-img {
+        border: .125rem solid white;
+        border-radius: 50%;
+        object-fit: cover;
+        height: 10rem;
+        width: 10rem;
+
+    }
+
+    a.go-back {
+        margin: 0; /* In main so margin unneccessary */
+    }
+
+    .modal-overlay {
+        z-index: 2;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+    .modal-content {
+        margin: 12vh auto; /* 15% from the top and centered */
+        padding: 20px;
+        width: 80%; /* Could be more or less, depending on screen size */
+        overflow-y: scroll;
+        border: 2px solid #ffcc00;
+        border-radius: 12px;
+        padding: 15px;
+        background-color: #1f1f1f;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(255, 204, 0, 0.2);
+        gap: 2vh;
+    }
+
+    .modal-content .card-img {
+        aspect-ratio: 1 / 2;
+        object-fit: cover;
+        object-position: center;
+        width: 50px;
+        height: auto;
+    }
+
+    .modal-content .close {
+        color: #ffcc00;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #ffdb4d;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+/* Tablet Potrait*/
+@media screen and (min-width: 768px) {
+    :root {
+        font-size: 20px;
+    }
+
+    main {
+        .profile-img {
+            height: 20rem;
+            width: 20rem;
+            object-fit: cover;
+        }
+
+        .battle-options {
+            margin-bottom: 4vh;
+        }
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1260px) {
+    :root {
+        font-size: 24px;
+    }
+
+    main {
+        .profile-img {
+            height: 10rem;
+            width: 10rem;
+            object-fit: cover;
+        }
+
+        .battle-icon {
+            margin-top: 0;
+        } 
+
+        .battle-options {
+            margin-bottom: 0;
+        }
+
+        #logout {
+            position: fixed;
+            top: 15vh;
+            right: 2vw;
+            z-index: 1000;
+        }
+
+        
+        #login, #register {
+            margin-top: 15vh;
+        }
+    }
+}

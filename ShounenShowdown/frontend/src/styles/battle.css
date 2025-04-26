@@ -1,0 +1,174 @@
+/* @author Heath Dyer */
+/* @author Gabriel Dean*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+.search-status[found="false"] {
+    position: absolute;
+    top: 50%;
+    width: 100vw;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    padding: 0;
+    z-index: 3;
+
+    .search-text::after {
+        content: ".";
+        display: inline-block;
+        animation: blink 2.0s infinite steps(3, end);
+    }
+}
+
+@keyframes blink {
+    0% { content: '.'; }
+    33% { content: '..'; }
+    66% { content: '...'; }
+    100% { content: '.'; }
+}
+
+.search-status[found="true"] {
+    display: none;
+}
+
+.search-status[found="false"] ~ .game-status {
+    display: none;
+}
+.search-status[found="true"] ~ .game-status {
+    position: absolute;
+    top: 50%;
+    width: 100vw;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    padding: 0;
+    z-index: 3;
+
+    p {
+        margin: 0;
+        padding: .125rem;
+    }
+}
+
+.search-status[found="false"] ~ main {
+    display: none;
+}
+.search-status[found="true"] ~ main {    
+    display: flex;
+    flex-direction: column;
+
+    .opponent-name, .player-name {
+        pointer-events: none;
+    }
+
+    .opponent-name h1, .player-name h1 {
+        padding: 15px;
+        background: #222;
+        border-radius: 30px;
+        min-width: 100px;
+        text-align: center;
+        transition: 0.3s;
+    }
+    
+    .opponent-name img, .player-name img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+
+    .opponent-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .opponent-name {
+            display: flex;
+            justify-content: right;
+        }
+    }
+
+    .player-section {  
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 1rem;
+
+        .move-options {
+            display: flex;
+            justify-content: center;
+        }
+
+        .options {
+            display: flex;
+            gap: 1rem;
+
+            .option {
+                display: flex;
+                gap: .5rem;
+                align-items: center;
+            }
+        }
+
+        .player-name {
+            display: flex;
+            justify-content: left;
+        }
+    }
+
+    .card.acted {
+        opacity: 0.6;
+    }
+
+    .card.dead {
+        opacity: 0.2;
+        background-color: rgba(255, 0, 0, 0.2);
+    }
+
+    .card.selected {
+        outline: .125rem solid rgba(255, 255, 255, 0.6);
+    }
+
+    .hp-overlay {
+        display:block;
+    }
+}
+
+/* Tablet Potrait*/
+@media screen and (min-width: 1256px) {
+    .search-status[found="true"] ~ main {
+        .deck.container {
+            width: 60vw;
+        }
+        .opponent-section {
+            flex-direction: row-reverse;
+        }
+
+        .player-section {
+            flex-direction: row-reverse;
+            align-items: flex-end;
+
+            .deck {
+                flex-shrink: 0;
+            }
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
